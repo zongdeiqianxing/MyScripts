@@ -33,7 +33,7 @@ class Scan():
 
     def writefile(self,file,row):
         with open(file,'a+',encoding='gbk') as f:
-            f.write(row)
+            f.write(row+'\n')
 
     def scan(self):
         while True:
@@ -66,7 +66,7 @@ class Scan():
             response = requests.get(url=url, headers=headers, verify=False, timeout=5)
             #print(response)
             if response.status_code == 200 :
-                self.writefile('svnscan_result.txt',url+'\n')
+                self.writefile('svnscan_result.txt',url)
                 print(url+' **'*20)
                 return True
 
